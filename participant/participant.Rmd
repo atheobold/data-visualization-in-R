@@ -653,16 +653,6 @@ yearly_sex_counts %>%
     facet_wrap(facets =  vars(species_id))
 ```
 
-Now let's use `facet_grid()` to control how panels are organised by both rows 
-and columns:
-
-```{r average-weight-time-facet-both, fig.width = 9.5}
-yearly_sex_counts %>% 
-  ggplot(mapping = aes(x = year, y = n, color = sex)) +
-    geom_line() +
-    facet_grid(rows = vars(sex), cols =  vars(species_id))
-```
-
 You can also organize the panels only by rows (or only by columns):
 
 ```{r average-weight-time-facet-sex-rows, fig.height = 8.5, fig.width = 8}
@@ -679,6 +669,17 @@ yearly_sex_counts %>%
     geom_line() +
     facet_wrap(vars(species_id), nrow = 1)
   # One row, facet by columns
+```
+
+
+Now let's use `facet_grid()` to control how panels are organised by both rows 
+and columns:
+
+```{r average-weight-time-facet-both, fig.width = 9.5}
+yearly_sex_counts %>% 
+  ggplot(mapping = aes(x = year, y = n, color = sex)) +
+    geom_line() +
+    facet_grid(rows = vars(sex), cols =  vars(species_id))
 ```
 
 
